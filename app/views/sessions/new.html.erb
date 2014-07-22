@@ -1,0 +1,27 @@
+<h1>Add a new Session</h1>
+<%= form_for(@session) do |f| %>
+  <ul>
+  <% @session.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :kind %><br />
+    <%= f.text_field :kind %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

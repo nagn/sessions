@@ -1,0 +1,15 @@
+<h1><%= @session.title %></h1>
+<p><%= @session.description %></p>
+<p><%= @session.date%></p>
+<p><%= @session.kind%></p>
+<%= link_to "<< Back to Sessions List", sessions_path %>
+
+<h1>Students who attended this event</h1>
+<ul id="students">
+  <% @session.students.each do |student| %>
+    <li>
+      <%= link_to student.title, students_path(student) %>
+    </li>
+  <% end %>
+</ul>
+
