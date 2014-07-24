@@ -1,0 +1,5 @@
+class SearchController < ApplicationController
+  def index
+    @students = Student.all
+  end
+end

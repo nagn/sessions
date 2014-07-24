@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722172806) do
+ActiveRecord::Schema.define(version: 20140724145916) do
 
   create_table "attendances", force: true do |t|
     t.integer  "session_id"
     t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "searches", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
