@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     
     respond_to do |format|  
       format.html # index.html.erb  
-      # Here is where you can specify how to handle the request for "/people.json"
+      # Here is where you can specify how to handle the request for "/students.json"
       format.json { render :json => @students.to_json }
     end
   end

@@ -1,38 +1,3 @@
-<script type="text/javascript">
-    $(function() {
-    // Below is the name of the textfield that will be autocomplete
-      
-      $('#search_student').autocomplete({
-        //This shows the min length of charcters that must be typed before the autocomplete looks for a match.
-        minLength: 2,
-        //This is the source of the auocomplete suggestions. In this case a list of names from the people controller, in JSON format.
-        source: '<%= students_path(:json) %>',
-        //This updates the textfield when you move the updown the suggestions list, with your keyboard.
-        //In our case it will reflect the same value that you see in the
-        //suggestions which is the student.name.
-        focus: function(event, ui) {
-                  $('#search_student').val(ui.item.name);
-                  return false;
-              },
-        //Once a value in the drop down list is selected, do the following:
-        select: function(event, ui) {
-        // place the person.given_name value into the textfield called 'search_student'...
-        $('#search_student').val(ui.item.name);
-        //and place the student_id into the hidden textfield called 'link_origin_id'. 
-          $('#link_origin_id').val(ui.item.id);
-              return false;
-        }
-      }).data("uiAutocomplete")._renderItem = function( ul, item ) {
-            return $( "<li></li>" )
-            .data( "item.autocomplete", item )
-              // For now which just want to show the person.given_name in the list.
-                .append( "<a>" + item.name + "</a>" )
-                .appendTo( ul );
-        };
-
-  });
-</script>
-
 <h1 id = "headline news">Add a new student</h1>
 <%= form_for(@student) do |f| %>
   <ul>

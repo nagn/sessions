@@ -1,0 +1,20 @@
+<%= form_for(@session) do |f| %>
+  <b>Selected Users</b>
+  <div id = "selected_students">
+  <p>
+    <% @attended_ids.each do |student_id| %>
+      <% student = Student.find(student_id) %>
+      <div id = "student_#{student_id}">
+        <p>
+          <%= student.name %>
+          (<%= student.id%>),
+        </p>
+      </div>
+    <% end %>
+  </p>
+  </div>
+
+<% end %>
+<div id="add_students" style="display:none;">
+  
+</div>
