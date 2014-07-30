@@ -1,0 +1,10 @@
+<%= form_for(@session) do |f| %>
+  <h1>Attending Students</h1>
+  <p>
+    <% @attended_students.each do |student| %>
+      <span id = "<%= "student_#{student.id}"%>">
+      <%= link_to student.name, student_path(student) %> ,
+      </span>
+    <% end %>
+  </p>
+<% end %>

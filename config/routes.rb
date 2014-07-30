@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :sessions
   resources :attendances
   resources :search
+  root 'landing_page#index'
 end
