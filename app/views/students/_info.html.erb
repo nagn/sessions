@@ -1,0 +1,43 @@
+<table id="table_info" class="datatable-wide table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>First Name</th>
+    <th>Nickname</th>
+    <th>Last Name</th>
+    <th>Goes By</th>
+    <th>Official Name</th>
+    <th>NetID</th>
+    <th>Cell Phone</th>
+    <th>Yale Email</th>
+    <th>Yale Email Alias</th>
+    <th>Real Email</th>
+    <th>Queue</th>
+    <th>Old Queue</th>
+    <th>Residential College/Graduate</th>
+    <th>Class Year</th>
+    <th>Birthday</th>
+    <th>Other</th>
+  </tr>
+    <td><%= link_to @student.name, @student %></td>
+    <td><%= link_to @student.first_name, @student %></td>
+    <td><%= link_to @student.nick_name, @student %></td>
+    <td><%= link_to @student.last_name, @student %></td>
+    <td><%= link_to @student.goes_by, @student %></td>
+    <td><%= link_to @student.official_full_name, @student %></td>
+    <td><%= link_to @student.net_id, @student %></td>
+    <td><%= link_to @student.cell, @student %></td>
+    <td><%= link_to @student.yale_email, @student %></td>
+    <td><%= link_to @student.yale_email_alias, @student %></td>
+    <td><%= link_to @student.non_yale_email, @student %></td>
+    <td><%= link_to @student.queue, @student %></td>
+    <td><%= link_to @student.old_queue, @student %></td>
+    <td><%= link_to @student.college, @student %></td>
+    <td><%= link_to @student.class_year, @student %></td>
+    <td><%= link_to @student.birthday, @student %></td>
+    <td><%= link_to @student.other, @student %></td>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>

@@ -3,8 +3,7 @@ class StudentsController < ApplicationController
   def index
     if params[:term]
       session = Session.find(params[:session_id])
-      
-      @students = Student.where("name like ?", "%#{params[:term]}%")
+      @students = Student.where("name LIKE ? OR nick_name LIKE ? OR net_id LIKE ?", "%#{params[:term]}%", "%#{params[:term]}%", "%#{params[:term]}%")
       @students -= session.students #remove all students that have already attended
     else
       @students = Student.all

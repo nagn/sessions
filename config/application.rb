@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Sessions
   class Application < Rails::Application
+    config.autoload_paths += %W(#{config.root}/lib/extras #{config.root}/lib/)
+    config.watchable_dirs['lib'] = [:rb]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

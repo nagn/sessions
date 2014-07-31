@@ -36,10 +36,10 @@
         //Once a value in the drop down list is selected, do the following:
         select: function(event, ui) {
           var user_id = ui.item.id;
-          var update_path = "<%=session_path(@session)%>";
+          var session_path = "<%=@session%>";
           $.ajax({
             type: "POST",
-            url: update_path,
+            url: "7",
             data: {
               _method:'PUT',
               selected_student: user_id

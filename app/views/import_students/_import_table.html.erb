@@ -1,0 +1,18 @@
+<thead>
+<tr>
+  <th>Login</th>
+  <th>Name</th>
+  <th>Phone</th>
+  <th>Email</th>
+  <th>Reason</th>
+</tr>
+</thead>
+<tbody>
+  <% students.each do |student_data| %>
+    <% student = student_data.first %>
+    <tr>
+      <td><%= student[:first_name] + ' ' + user[:last_name] %></td>
+      <td><%= student[:cell_phone] %></td>
+      <td><%= student[:yale_email] %></td>
+    </tr>
+  <% end %>

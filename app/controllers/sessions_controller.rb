@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     #append student to list
     @session = Session.find(params[:id])
     @attended_students = Session.find(params[:id]).students
-    if params[:term]
+    if params[:selected_student]
       student = Student.find(params[:selected_student])
       attendance = Attendance.new({:student => student, :session => @session})
       attendance.save

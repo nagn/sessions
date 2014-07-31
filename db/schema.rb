@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724145916) do
+ActiveRecord::Schema.define(version: 20140731140456) do
 
   create_table "attendances", force: true do |t|
     t.integer  "session_id"
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(version: 20140724145916) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
+    t.string   "first_name"
+    t.string   "nick_name"
+    t.string   "goes_by"
+    t.string   "last_name"
+    t.string   "official_full_name"
+    t.string   "net_id"
+    t.string   "cell"
+    t.string   "yale_email"
+    t.string   "yale_email_alias"
+    t.string   "non_yale_email"
+    t.string   "queue"
+    t.string   "old_queue"
+    t.string   "college"
+    t.integer  "class_year"
+    t.string   "birthday"
+    t.text     "other"
   end
 
 end
