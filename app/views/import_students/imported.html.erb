@@ -11,7 +11,9 @@
 
   <% unless @hash_of_statuses[:success].empty? %>
     <h2>Students successfully imported</h2>
+      <%= link_to "<<Return to Index", landing_page_index_path %>
       <%= render :partial => 'students/table', :locals => {:students => @hash_of_statuses[:success]} %>
+      <%= link_to "Return to Index", landing_page_index_path %>
   <% end %>
 <% else %>
   <h2>Please follow <%= link_to "this link", :controller => :import_students, :action => :import_page %> to import students.</h2>
