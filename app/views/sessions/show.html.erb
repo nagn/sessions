@@ -7,3 +7,8 @@
   <%= render "attending_students" %>
 </div>
 <%= render "selected_users"%>
+<%= form_for(@session) do |f| %>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

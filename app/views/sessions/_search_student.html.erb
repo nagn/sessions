@@ -51,13 +51,15 @@
             }
           });
           var terms = split( this.value );
+          this.value = "";
+          /*
           terms.pop();
           // add the selected item
           terms.push( ui.item.name );
           // add placeholder to get the comma-and-space at the end
           terms.push( "" );
           this.value = terms.join( ", " );
-          
+          */
           return false;
         }
       }).data("uiAutocomplete")._renderItem = function( ul, item ) {

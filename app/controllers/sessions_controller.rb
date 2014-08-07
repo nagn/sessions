@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     @session = Session.new
   end
   def show
-    #flash.notice = "Updated!"
     @session = Session.find(params[:id])
     @attended_students = Session.find(params[:id]).students
   end
@@ -39,9 +38,11 @@ class SessionsController < ApplicationController
       respond_to do |format|
         format.js
       end
-
     else
       redirect_to sessions_path
     end
+  end
+  def update
+    redirect_to sessions_path
   end
 end
