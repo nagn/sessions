@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   resources :students
-  resources :sessions
+  resources :sessions do
+    member do
+      post 'add_student'
+    end
+    member do
+      delete 'remove_student'
+    end
+  end
   resources :attendances
   resources :search
   root 'landing_page#index'

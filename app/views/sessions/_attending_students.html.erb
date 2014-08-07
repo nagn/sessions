@@ -13,7 +13,21 @@
         */
       
       $('.boxclose').click(function() {
-        alert("closing box");
+        var student_id = this.id;
+        var delete_path = "<%= remove_student_session_path %>";
+        $.ajax({
+            type: "POST",
+            url: delete_path,
+            data: {
+              _method: "DELETE",
+              selected_student: student_id
+            },
+            headers: {
+              'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+            },
+            success: function(msg) {
+            }
+          });
       });
     });
     </script>
@@ -52,8 +66,8 @@
     }
     </style>
     <% @attended_students.each do |student| %>
-    <div class="box" id="<%="student_box_#{student.id}"%>">
-      <a class="boxclose" id= "<%="student_box_close_#{student.id}"%>"></a>
+    <div class="box" id="<%="#{student.id}"%>">
+      <a class="boxclose" id= "<%="#{student.id}"%>"></a>
         <p><%= student.name %></p>
     </div>
     </p>

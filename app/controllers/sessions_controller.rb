@@ -16,8 +16,7 @@ class SessionsController < ApplicationController
     @session.save
     redirect_to session_path(@session)
   end
-  def update
-    #append student to list
+  def add_student
     @session = Session.find(params[:id])
     @attended_students = Session.find(params[:id]).students
     if params[:selected_student]
@@ -27,6 +26,20 @@ class SessionsController < ApplicationController
       respond_to do |format|
         format.js
       end
+    else
+      redirect_to sessions_path
+    end
+  end
+  def remove_student
+    @session = Session.find(params[:id])
+    @attended_students = Session.find(params[:id]).students
+    if params[:selected_student]
+      student = Student.find(params[:selected_student])
+      @session.students.delete(student)
+      respond_to do |format|
+        format.js
+      end
+
     else
       redirect_to sessions_path
     end
