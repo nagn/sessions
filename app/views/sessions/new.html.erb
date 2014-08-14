@@ -3,7 +3,9 @@
   $("#datepicker" ).datepicker();
   });
 </script>
-
+<style>
+  
+</style>
 <h1>Add a new Session</h1>
 <%= form_for(@session) do |f| %>
   <ul>
@@ -16,14 +18,15 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
     <%= f.label :kind %><br />
     <%= f.text_field :kind %>
   </p>
-  <p>Date: <input type="text" id="datepicker"></p>
+  <%= f.label :date %><br />
+  <%= f.text_field :date, :id => "datepicker" %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :id => "description_field" %>
+  </p>
   <p>
     <%= f.submit %>
   </p>

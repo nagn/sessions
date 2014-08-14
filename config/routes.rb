@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :sessions do
     member do
       post 'add_student'
-    end
-    member do
       delete 'remove_student'
     end
   end

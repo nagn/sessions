@@ -1,12 +1,4 @@
 <%= render "search_student" %>
-<style>
-  #search_student
-  {
-    height:200px;
-    width: 300px;
-  }
-</style>
-
 <%= form_for [@session], :remote => true, :authenticity_token => true do |f| %>
     <p>Please enter the names of whoever is attending:<br /> 
       <!-- This is the textfield that will autocomplete. What is displayed here is for the user to see but the data will not go anywhere -->

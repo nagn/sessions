@@ -12,7 +12,7 @@
         //This shows the min length of charcters that must be typed before the autocomplete looks for a match.
         minLength: 2,
         position: { my : "left bottom", at: "left top" },
-        //This is the source of the auocomplete suggestions. In this case a list of names from the people controller, in JSON format.
+        //This is the source of the autocomplete suggestions. In this case a list of names from the people controller, in JSON format.
         source: function( request, response ) {
         $.getJSON('<%= students_path(:json) %>', {
           term: extractLast( request.term ),
@@ -52,14 +52,6 @@
           });
           var terms = split( this.value );
           this.value = "";
-          /*
-          terms.pop();
-          // add the selected item
-          terms.push( ui.item.name );
-          // add placeholder to get the comma-and-space at the end
-          terms.push( "" );
-          this.value = terms.join( ", " );
-          */
           return false;
         }
       }).data("uiAutocomplete")._renderItem = function( ul, item ) {

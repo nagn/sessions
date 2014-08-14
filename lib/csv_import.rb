@@ -156,4 +156,16 @@ module CsvImport
     end
     return student
   end
+  def export_sessions(sessions)
+    #takes an array of sessions, and then exports the relevant info to a csv file.
+    require 'csv'
+    CSV.generate do |csv|
+      csv << ["Title of Session", "Student Name", "Student netid", "Student yale e-mail"]
+      sessions.each do |session|
+        session.students.each do |student|
+          csv << [session.title, student.name, student.net_id, student.yale_email]
+        end
+      end
+    end
+  end
 end

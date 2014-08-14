@@ -1,71 +1,26 @@
 <%= form_for(@session) do |f| %>
   <h1>Attending Students</h1>
-  <p>
-    <script type="text/javascript">$(function() {
-      $('.boxclose').click(function() {
-        var student_id = this.id;
-        var delete_path = "<%= remove_student_session_path %>";
-        $.ajax({
-            type: "POST",
-            url: delete_path,
-            data: {
-              _method: "DELETE",
-              selected_student: student_id
-            },
-            headers: {
-              'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
-            },
-            success: function(msg) {
-            }
-          });
-      });
-    });
-    </script>
-    <style>
-    .box{
-      border-radius: 5px;
-      background: #0000FF;
-      font-size: 22px;
-      padding: 11px 0px 0px 11px;
-      margin: 0px, 0px 0px 0px;
-      margin-top: 10px;
-      display: inline-block;
-      
-    }
-    .boxclose{
-      float: right;
-      cursor:pointer;
-      border-radius: 3px;
-      background: #3333FF;
-      font-size: 15px;
-      font-weight: bold;
-      display: inline-block;
-      margin: -10px 2px 0px 2px;
-      padding: 0px 0px;
-      /*
-      margin-top:-30px;
-      margin-right:-30px;
-      cursor:pointer;
-      color: #fff;
-      
-      border-radius: 30px;
-      
-      font-size: 31px;
-      font-weight: bold;
-      display: inline-block;
-      line-height: 0px;
-      padding: 11px 3px;
-      */
-    }
-    a.studentlink{
-      color: #FFFFFF;
-      text-decoration:none; 
-      font-weight: bold;
-    }
-    .boxclose:before {
-      content: "×";
-    }
-    </style>
+  <script type = "text/javascript">
+  $(function() {
+    $('.boxclose').click(function() {
+          var student_id = this.id;
+          var delete_path = "<%= remove_student_session_path %>";
+          $.ajax({
+              type: "POST",
+              url: delete_path,
+              data: {
+                _method: "DELETE",
+                selected_student: student_id
+              },
+              headers: {
+                'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+              },
+              success: function(msg) {
+              }
+            });
+        });
+  });
+  </script>
   <% @attended_students.each do |student| %>
       <div class="box" id="<%="#{student.id}"%>">
         <a href="<%=student_path(student)%>" class="studentlink"><%=student.name%></a>

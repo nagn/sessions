@@ -1,10 +1,22 @@
 <h1>All Sessions</h1>
+
 <%= link_to "<<Return to Index", landing_page_index_path %>
-<ul id="sessions">
+<%= link_to "Create a New Session", new_session_path, class: "new_session" %>
+<%= link_to "Download as CSV", sessions_path(:format => "csv"), class: "csv_download" %>
+<table id="session_info" class="datatable-wide table table-striped table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Total Attendance</th>
+  </tr>
   <% @sessions.each do |session| %>
-    <li>
-      <%= link_to session.title, session_path(session) %>
-    </li>
+  <tr>
+    <td><%= link_to session.title, session_path(session) %></td>
+    <td><%= session.date%></td>
+    <td><%= session.description%></td>
+    <td><%= session.students.count%></td>
+  </tr>
   <% end %>
-  <%= link_to "Create a New Session", new_session_path, class: "new_session" %>
-</ul>
+
+</table>
