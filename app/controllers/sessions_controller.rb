@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
   def show
     @session = Session.find(params[:id])
     @attended_students = Session.find(params[:id]).students
+    
     respond_to do |format|
       format.html
       format.csv { render text: export_sessions([@session]) }

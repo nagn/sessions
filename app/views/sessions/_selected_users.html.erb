@@ -1,7 +1,6 @@
-<%= render "search_student" %>
 <%= form_for [@session], :remote => true, :authenticity_token => true do |f| %>
     <p>Please enter the names of whoever is attending:<br /> 
       <!-- This is the textfield that will autocomplete. What is displayed here is for the user to see but the data will not go anywhere -->
-      <textarea id="search_student"></textarea>
+      <input id="search_student" session_id = "<%=@session.id%>" student_path_json = "/students.json" add_student_session_path = "<%= add_student_session_path %>" remove_student_session_path = "<%= remove_student_session_path %>"></input>
     </p>
   <% end %>

@@ -1,26 +1,26 @@
-<%= form_for(@session) do |f| %>
-  <h1>Attending Students</h1>
-  <script type = "text/javascript">
-  $(function() {
-    $('.boxclose').click(function() {
-          var student_id = this.id;
-          var delete_path = "<%= remove_student_session_path %>";
-          $.ajax({
-              type: "POST",
-              url: delete_path,
-              data: {
-                _method: "DELETE",
-                selected_student: student_id
-              },
-              headers: {
-                'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
-              },
-              success: function(msg) {
-              }
-            });
-        });
+
+<script>
+$(".boxclose").click(function() {
+  var delete_path, student_id;
+  student_id = this.id;
+  delete_path = "<%= remove_student_session_path %>";
+  $.ajax({
+    type: "POST",
+    url: delete_path,
+    data: {
+      _method: "DELETE",
+      selected_student: student_id
+    },
+    beforeSend: function(xhr) {
+      return xhr.setRequestHeader("X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content"));
+    }
   });
-  </script>
+});
+</script>
+<%= form_for(@session) do |f| %>
+  <div id = students_headline>
+    <h1>Attending Students</h1>
+  </div>
   <% @attended_students.each do |student| %>
       <div class="box" id="<%="#{student.id}"%>">
         <a href="<%=student_path(student)%>" class="studentlink"><%=student.name%></a>
